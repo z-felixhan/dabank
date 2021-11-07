@@ -4,13 +4,15 @@ import { Link as LinkScroll } from "react-scroll";
 import React from "react";
 import styled from "styled-components";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { toggle } = props;
+
   return (
     <>
       <Nav>
         <NavbarContainer>
           <NavLogo to="/">dabank</NavLogo>
-          <MobileIcon>
+          <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
