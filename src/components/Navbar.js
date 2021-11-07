@@ -29,9 +29,9 @@ const Navbar = (props) => {
               <NavLinks to="sign-up">Sign Up</NavLinks>
             </NavItem>
           </NavMenu>
-          <NavBtn>
-            <NavBtnLink to="/login">Login</NavBtnLink>
-          </NavBtn>
+          <NavButton>
+            <NavButtonLink to="/login">Login</NavButtonLink>
+          </NavButton>
         </NavbarContainer>
       </Nav>
     </>
@@ -46,7 +46,7 @@ const Nav = styled.nav`
   display: flex;
   height: 80px;
   justify-content: center;
-  // margin-top: -80px;
+  margin-top: -80px;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -123,7 +123,7 @@ const NavLinks = styled(LinkScroll)`
   }
 `;
 
-const NavBtn = styled.nav`
+const NavButton = styled.nav`
   align-items: center;
   display: flex;
 
@@ -132,7 +132,7 @@ const NavBtn = styled.nav`
   }
 `;
 
-const NavBtnLink = styled(LinkRouter)`
+const NavButtonLink = styled(LinkRouter)`
   background: #01bf71;
   border: none;
   border-radius: 50px;
