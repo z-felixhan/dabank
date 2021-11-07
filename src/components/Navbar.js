@@ -116,7 +116,7 @@ const NavLinks = styled(LinkScroll)`
   padding: 0 1rem;
   text-decoration: none;
 
-  &.active {
+  &:active {
     border-bottom: 3px solid #01bf71;
   }
 `;
