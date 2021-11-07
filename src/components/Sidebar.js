@@ -4,18 +4,28 @@ import { Link as LinkScroll } from "react-scroll";
 import React from "react";
 import styled from "styled-components";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const { isOpen, toggle } = props;
+
   return (
-    <SidebarContainer>
-      <Icon>
+    <SidebarContainer isOpen={isOpen} onClick={toggle}>
+      <Icon onClick={toggle}>
         <CloseIcon />
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to="about">About</SidebarLink>
-          <SidebarLink to="discover">Discover</SidebarLink>
-          <SidebarLink to="services">Services</SidebarLink>
-          <SidebarLink to="sign-up">Sign Up</SidebarLink>
+          <SidebarLink to="about" onClick={toggle}>
+            About
+          </SidebarLink>
+          <SidebarLink to="discover" onClick={toggle}>
+            Discover
+          </SidebarLink>
+          <SidebarLink to="services" onClick={toggle}>
+            Services
+          </SidebarLink>
+          <SidebarLink to="sign-up" onClick={toggle}>
+            Sign Up
+          </SidebarLink>
         </SidebarMenu>
         <SidebarButtonWrapper>
           <SidebarRoute to="/login">Login</SidebarRoute>
