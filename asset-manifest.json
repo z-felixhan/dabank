@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/z-felixhan/dabank.git/static/css/main.dc34ea7c.chunk.css",
-    "main.js": "/z-felixhan/dabank.git/static/js/main.2fccec1e.chunk.js",
-    "main.js.map": "/z-felixhan/dabank.git/static/js/main.2fccec1e.chunk.js.map",
-    "runtime-main.js": "/z-felixhan/dabank.git/static/js/runtime-main.fe24f0ba.js",
-    "runtime-main.js.map": "/z-felixhan/dabank.git/static/js/runtime-main.fe24f0ba.js.map",
-    "static/js/2.eb6e68e2.chunk.js": "/z-felixhan/dabank.git/static/js/2.eb6e68e2.chunk.js",
-    "static/js/2.eb6e68e2.chunk.js.map": "/z-felixhan/dabank.git/static/js/2.eb6e68e2.chunk.js.map",
-    "index.html": "/z-felixhan/dabank.git/index.html",
-    "static/css/main.dc34ea7c.chunk.css.map": "/z-felixhan/dabank.git/static/css/main.dc34ea7c.chunk.css.map",
-    "static/js/2.eb6e68e2.chunk.js.LICENSE.txt": "/z-felixhan/dabank.git/static/js/2.eb6e68e2.chunk.js.LICENSE.txt",
-    "static/media/undraw_credit_card_re_blml.f0df71d4.svg": "/z-felixhan/dabank.git/static/media/undraw_credit_card_re_blml.f0df71d4.svg",
-    "static/media/undraw_make_it_rain_iwk4.586150eb.svg": "/z-felixhan/dabank.git/static/media/undraw_make_it_rain_iwk4.586150eb.svg",
-    "static/media/undraw_personal_website_re_c8dv.7837b8db.svg": "/z-felixhan/dabank.git/static/media/undraw_personal_website_re_c8dv.7837b8db.svg",
-    "static/media/undraw_progressive_app_m-9-ms.cb6cad89.svg": "/z-felixhan/dabank.git/static/media/undraw_progressive_app_m-9-ms.cb6cad89.svg",
-    "static/media/undraw_searching_p-5-ux.1b43e10f.svg": "/z-felixhan/dabank.git/static/media/undraw_searching_p-5-ux.1b43e10f.svg",
-    "static/media/undraw_wallet_aym5.c890da02.svg": "/z-felixhan/dabank.git/static/media/undraw_wallet_aym5.c890da02.svg"
+    "main.css": "/dabank/static/css/main.dc34ea7c.chunk.css",
+    "main.js": "/dabank/static/js/main.2fccec1e.chunk.js",
+    "main.js.map": "/dabank/static/js/main.2fccec1e.chunk.js.map",
+    "runtime-main.js": "/dabank/static/js/runtime-main.ade06445.js",
+    "runtime-main.js.map": "/dabank/static/js/runtime-main.ade06445.js.map",
+    "static/js/2.e9842b32.chunk.js": "/dabank/static/js/2.e9842b32.chunk.js",
+    "static/js/2.e9842b32.chunk.js.map": "/dabank/static/js/2.e9842b32.chunk.js.map",
+    "index.html": "/dabank/index.html",
+    "static/css/main.dc34ea7c.chunk.css.map": "/dabank/static/css/main.dc34ea7c.chunk.css.map",
+    "static/js/2.e9842b32.chunk.js.LICENSE.txt": "/dabank/static/js/2.e9842b32.chunk.js.LICENSE.txt",
+    "static/media/undraw_credit_card_re_blml.f0df71d4.svg": "/dabank/static/media/undraw_credit_card_re_blml.f0df71d4.svg",
+    "static/media/undraw_make_it_rain_iwk4.586150eb.svg": "/dabank/static/media/undraw_make_it_rain_iwk4.586150eb.svg",
+    "static/media/undraw_personal_website_re_c8dv.7837b8db.svg": "/dabank/static/media/undraw_personal_website_re_c8dv.7837b8db.svg",
+    "static/media/undraw_progressive_app_m-9-ms.cb6cad89.svg": "/dabank/static/media/undraw_progressive_app_m-9-ms.cb6cad89.svg",
+    "static/media/undraw_searching_p-5-ux.1b43e10f.svg": "/dabank/static/media/undraw_searching_p-5-ux.1b43e10f.svg",
+    "static/media/undraw_wallet_aym5.c890da02.svg": "/dabank/static/media/undraw_wallet_aym5.c890da02.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.fe24f0ba.js",
-    "static/js/2.eb6e68e2.chunk.js",
+    "static/js/runtime-main.ade06445.js",
+    "static/js/2.e9842b32.chunk.js",
     "static/css/main.dc34ea7c.chunk.css",
     "static/js/main.2fccec1e.chunk.js"
   ]
