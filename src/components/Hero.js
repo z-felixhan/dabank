@@ -2,6 +2,7 @@ import { MdArrowForward, MdKeyboardArrowRight } from "react-icons/md";
 import { Button } from "../components/Button";
 import React, { useState } from "react";
 import styled from "styled-components";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const Hero = () => {
   const [hover, setHover] = useState(false);
@@ -23,7 +24,16 @@ const Hero = () => {
         </HeroParagraph>
         <HeroButtonWrapper onMouseEnter={onHover} onMouseLeave={onHover}>
           <Button
-            to="sign-up"
+            to={
+              useWindowDimensions().innerWidth >= 768
+                ? "discover"
+                : "discover-container"
+            }
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact="true"
+            offset={useWindowDimensions().innerWidth >= 768 ? -80 : 0}
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary="true"
@@ -39,28 +49,12 @@ const Hero = () => {
 
 const HeroContainer = styled.div`
   align-items: center;
-  background: #0c0c0c;
+  background: #010606;
   display: flex;
   height: 800px;
   justify-content: center;
   padding: 0 30px;
   position: relative;
-  z-index: 1;
-
-  :before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0.6) 100%
-      ),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
-    z-index: 5;
-  }
 `;
 
 const HeroBackgroundWrapper = styled.div`
@@ -74,7 +68,7 @@ const HeroBackground = styled.div`
   background-image: linear-gradient(#ff9d2f, #ff6126);
   height: 100%;
   position: absolute;
-  top: -15%;
+  top: -10%;
   transform: skewY(-5deg);
   width: 100%;
 `;
@@ -107,8 +101,8 @@ const HeroParagraph = styled.p`
   color: #fff;
   font-size: 24px;
   margin-top: 24px;
-  text-align: center;
   max-width: 600px;
+  text-align: center;
 
   @media screen and (max-width: 768px) {
     font-size: 24px;
