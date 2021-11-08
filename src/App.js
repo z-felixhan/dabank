@@ -9,7 +9,6 @@ function App() {
   return (
     <BrowserRouter className="App">
       <Home />
-      <Hero />
     </BrowserRouter>
   );
 }
