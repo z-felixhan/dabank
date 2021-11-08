@@ -38,8 +38,12 @@ const Sidebar = (props) => {
 const SidebarContainer = styled.aside`
   align-items: center;
   background: #0d0d0d;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  justify-content: center;
   left: 0;
+  min-height: 540px;
   opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
   position: fixed;
   top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
@@ -64,7 +68,6 @@ const Icon = styled.div`
 
 const SidebarWrapper = styled.div`
   color: #fff;
-  margin-top: 10vh;
 `;
 
 const SidebarMenu = styled.ul`
