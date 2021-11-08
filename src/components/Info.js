@@ -1,28 +1,34 @@
 import { Button } from "../components/Button";
 import React from "react";
 import styled from "styled-components";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const Info = (props) => {
   const {
     id,
     buttonLabel,
+    containerId,
     description,
     dark,
     darkText,
+    even,
     headline,
     img,
     imgStart,
+    last,
     lightBg,
     lightText,
     lightTextDesc,
     primary,
+    to,
     topLine,
   } = props;
+
   return (
     <>
-      <InfoContainer id={id} lightBg={lightBg}>
-        <InfoWrapper>
-          <InfoRow imgStart={imgStart}>
+      <InfoContainer id={containerId} even={even} last={last} lightBg={lightBg}>
+        <InfoWrapper even={even}>
+          <InfoRow id={id} imgStart={imgStart}>
             <InfoColumnOne>
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
@@ -30,11 +36,16 @@ const Info = (props) => {
                 <Subheader darkText={darkText}>{description}</Subheader>
                 <ButtonWrapper>
                   <Button
-                    to="home"
+                    to={
+                      useWindowDimensions().innerWidth >= 768
+                        ? to
+                        : to + "-container"
+                    }
                     smooth={true}
                     duration={500}
                     spy={true}
                     exact="true"
+                    offset={useWindowDimensions().innerWidth >= 768 ? -80 : 0}
                     primary={primary ? 1 : 0}
                     dark={dark ? 1 : 0}
                   >
@@ -45,7 +56,7 @@ const Info = (props) => {
             </InfoColumnOne>
             <InfoColumnTwo>
               <ImageWrapper>
-                <Image src={img} />
+                <Image src={img} imgStart={imgStart} />
               </ImageWrapper>
             </InfoColumnTwo>
           </InfoRow>
@@ -56,15 +67,51 @@ const Info = (props) => {
 };
 
 const InfoContainer = styled.div`
-  background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")};
+  background: ${({ last, lightBg }) => {
+    if (last) {
+      if (lightBg) {
+        return "transparent";
+      } else {
+        return "#010606";
+      }
+    } else {
+      if (lightBg) {
+        return "linear-gradient(#ff9d2f, #ff6126)";
+      } else {
+        return "#010606";
+      }
+    }
+  }};
   color: #fff;
+  position: relative;
+  transform: ${({ even }) => (even ? "skewY(-5deg)" : "skewY(5deg)")};
+  z-index: 0;
+
+  &::before {
+    background: ${({ lightBg }) =>
+      lightBg ? "linear-gradient(#ff9d2f, #ff6126)" : "#010606"};
+    bottom: 0;
+    content: "";
+    height: 950px;
+    left: 0;
+    opacity: ${({ last }) => (last ? 1 : 0)};
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -10;
+  }
 
   @media screen and (max-width: 768px) {
     padding: 100px 0;
+
+    &::before {
+      height: 1200px;
+    }
   }
 `;
 
 const InfoWrapper = styled.div`
+  align-items: center;
   display: grid;
   height: 860px;
   justify-content: center;
@@ -72,39 +119,45 @@ const InfoWrapper = styled.div`
   margin-right: auto;
   max-width: 1100px;
   padding: 0 24px;
+  transform: ${({ even }) => (even ? "skewY(5deg)" : "skewY(-5deg)")};
   width: 100%;
-  z-index: 1;
+
+  @media screen and (max-width: 768px) {
+    height: 100%;
+  }
 `;
 
 const InfoRow = styled.div`
+  align-items: center;
   display: grid;
   grid-auto-columns: minmax(auto, 1fr);
-  align-items: center;
   grid-template-areas: ${({ imgStart }) =>
     imgStart ? `'col2 col1'` : `'col1 col2'`};
+  height: 75%;
 
   @media screen and (max-width: 768px) {
     grid-template-areas: ${({ imgStart }) =>
       imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
+    height: 100%;
   }
 `;
 
 const InfoColumnOne = styled.div`
+  grid-area: col1;
   margin-bottom: 15px;
   padding: 0 15px;
-  grid-area: col1;
 `;
 
 const InfoColumnTwo = styled.div`
+  grid-area: col2;
   margin-bottom: 15px;
   padding: 0 15px;
-  grid-area: col2;
 `;
 
 const TextWrapper = styled.div`
   max-width: 540px;
-  padding-top: 0;
   padding-bottom: 60px;
+  padding-top: 0;
 `;
 
 const TopLine = styled.p`
@@ -151,6 +204,7 @@ const Image = styled.img`
   margin: 0 0 10px 0;
   padding-right: 0;
   width: 100%;
+  transform: ${({ imgStart }) => (imgStart ? "scaleX(-1)" : "scaleX(1)")};
 `;
 
 export default Info;

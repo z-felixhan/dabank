@@ -1,54 +1,114 @@
+import { animateScroll } from "react-scroll";
 import { FaBars } from "react-icons/fa";
+import { IconContext } from "react-icons/lib";
 import { Link as LinkRouter } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Navbar = (props) => {
   const { toggle } = props;
+  const [scrollNav, setScrollNav] = useState(false);
+
+  const changeNav = () => {
+    if (window.scrollY >= 50) {
+      setScrollNav(true);
+    } else {
+      setScrollNav(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+  }, []);
+
+  const toggleHome = () => {
+    animateScroll.scrollToTop();
+  };
 
   return (
     <>
-      <Nav>
-        <NavbarContainer>
-          <NavLogo to="/">dabank</NavLogo>
-          <MobileIcon onClick={toggle}>
-            <FaBars />
-          </MobileIcon>
-          <NavMenu>
-            <NavItem>
-              <NavLinks to="about">About</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to="discover">Discover</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to="services">Services</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to="sign-up">Sign Up</NavLinks>
-            </NavItem>
-          </NavMenu>
-          <NavButton>
-            <NavButtonLink to="/login">Login</NavButtonLink>
-          </NavButton>
-        </NavbarContainer>
-      </Nav>
+      <IconContext.Provider value={{ color: "#fff" }}>
+        <Nav scrollNav={scrollNav}>
+          <NavbarContainer>
+            <NavLogo to="/" onClick={toggleHome}>
+              dabank
+            </NavLogo>
+            <MobileIcon onClick={toggle}>
+              <FaBars />
+            </MobileIcon>
+            <NavMenu>
+              <NavItem>
+                <NavLinks
+                  to="about"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  About
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks
+                  to="discover"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  Discover
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks
+                  to="services"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  Services
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks
+                  to="sign-up"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  Sign Up
+                </NavLinks>
+              </NavItem>
+            </NavMenu>
+            <NavButton>
+              <NavButtonLink to="/login">Login</NavButtonLink>
+            </NavButton>
+          </NavbarContainer>
+        </Nav>
+      </IconContext.Provider>
     </>
   );
 };
 
 const Nav = styled.nav`
   align-items: center;
-  background: #000;
-  font-size: 1rem;
+  background: ${({ scrollNav }) => (scrollNav ? "#000" : "transparent")};
   color: #fff;
   display: flex;
+  font-size: 1rem;
   height: 80px;
   justify-content: center;
   margin-top: -80px;
   position: sticky;
   top: 0;
+  transition: 0.8s all ease;
   z-index: 10;
 
   @media screen and (max-width: 960px) {
@@ -97,7 +157,7 @@ const NavMenu = styled.ul`
   align-items: center;
   display: flex;
   list-style: none;
-  // margin-right: -22px;
+  margin-right: 30px;
   text-align: center;
 
   @media screen and (max-width: 768px) {
@@ -111,6 +171,7 @@ const NavItem = styled.li`
 
 const NavLinks = styled(LinkScroll)`
   align-items: center;
+  border-bottom: 3px solid transparent;
   color: #fff;
   cursor: pointer;
   display: flex;
@@ -118,7 +179,7 @@ const NavLinks = styled(LinkScroll)`
   padding: 0 1rem;
   text-decoration: none;
 
-  &:active {
+  &:hover {
     border-bottom: 3px solid #01bf71;
   }
 `;

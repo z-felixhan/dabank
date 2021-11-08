@@ -14,16 +14,16 @@ const Sidebar = (props) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to="about" onClick={toggle}>
+          <SidebarLink to="about-container" onClick={toggle}>
             About
           </SidebarLink>
-          <SidebarLink to="discover" onClick={toggle}>
+          <SidebarLink to="discover-container" onClick={toggle}>
             Discover
           </SidebarLink>
           <SidebarLink to="services" onClick={toggle}>
             Services
           </SidebarLink>
-          <SidebarLink to="sign-up" onClick={toggle}>
+          <SidebarLink to="sign-up-container" onClick={toggle}>
             Sign Up
           </SidebarLink>
         </SidebarMenu>
