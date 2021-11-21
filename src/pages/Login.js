@@ -9,7 +9,7 @@ const Login = () => {
         <FormWrap>
           <Icon to="/">dabank</Icon>
           <FormContent>
-            <Form action="/">
+            <Form action="./">
               <FormHeader>Sign in to your account</FormHeader>
               <FormLabel htmlFor="for">Email</FormLabel>
               <FormInput type="email" required />
