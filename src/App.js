@@ -5,10 +5,10 @@ import Login from "./pages/Login";
 
 function App() {
   return (
-    <HashRouter className="App">
+    <HashRouter>
       <Routes>
-        <Route path="/" element={<Home />} exact />
-        <Route path="/login" element={<Login />} exact />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/login" element={<Login />} />
       </Routes>
     </HashRouter>
   );
