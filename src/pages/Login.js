@@ -9,12 +9,12 @@ const Login = () => {
         <FormWrap>
           <Icon to="/">dabank</Icon>
           <FormContent>
-            <Form action="#">
+            <Form action="/">
               <FormHeader>Sign in to your account</FormHeader>
               <FormLabel htmlFor="for">Email</FormLabel>
               <FormInput type="email" required />
               <FormLabel htmlFor="for">Password</FormLabel>
-              <FormInput type="email" required />
+              <FormInput type="password" required />
               <FormButton type="submit" required>
                 Continue
               </FormButton>
@@ -57,6 +57,7 @@ const Icon = styled(Link)`
   margin-left: 32px;
   margin-top: 32px;
   text-decoration: none;
+  width: 0%;
 
   @media screen and (max-width: 480px) {
     margin-left: 16px;
