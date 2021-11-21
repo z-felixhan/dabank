@@ -8,7 +8,7 @@ const Sidebar = (props) => {
   const { isOpen, toggle } = props;
 
   return (
-    <SidebarContainer isOpen={isOpen} onClick={toggle}>
+    <SidebarContainer isOpen={isOpen}>
       <Icon onClick={toggle}>
         <CloseIcon />
       </Icon>
@@ -38,7 +38,7 @@ const Sidebar = (props) => {
 const SidebarContainer = styled.aside`
   align-items: center;
   background: #0d0d0d;
-  display: flex;
+  display: none;
   flex-direction: column;
   height: 100%;
   justify-content: center;
@@ -50,6 +50,10 @@ const SidebarContainer = styled.aside`
   transition: 0.3s ease-in-out;
   width: 100%;
   z-index: 1000;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
 `;
 
 const CloseIcon = styled(FaTimes)`
